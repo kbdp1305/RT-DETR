@@ -2,21 +2,14 @@ task: detection
 
 evaluator:
   type: CocoEvaluator
-  iou_types: ['bbox', ]
-
-# num_classes: 365
-# remap_mscoco_category: False
-
-# num_classes: 91
-# remap_mscoco_category: False
+  iou_types: ['bbox']
 
 num_classes: 3
-remap_mscoco_category: True
+remap_mscoco_category: False   # our ids are already 0:car,1:bus,2:truck
 
-
-train_dataloader: 
+train_dataloader:
   type: DataLoader
-  dataset: 
+  dataset:
     type: CocoDetection
     img_folder: /kaggle/working/merged_vehicle_dataset/images/train
     ann_file: /kaggle/working/merged_vehicle_dataset/annotations/instances_train2017_merged.json
@@ -26,23 +19,22 @@ train_dataloader:
       ops: ~
   shuffle: True
   num_workers: 4
-  drop_last: True 
+  drop_last: True
   collate_fn:
-    type: BatchImageCollateFuncion
-
+    type: BatchImageCollateFunction   # correct spelling
 
 val_dataloader:
   type: DataLoader
-  dataset: 
+  dataset:
     type: CocoDetection
-    img_folder:/kaggle/input/coco-2017-dataset/coco2017/val2017
-    ann_file: /kaggle/input/coco-2017-dataset/coco2017/annotations/instances_val2017.json
+    img_folder: /kaggle/input/coco-2017-dataset/coco2017/val2017
+    ann_file: /kaggle/working/coco_2017/data/annotations/instances_val2017_filtered.json
     return_masks: False
     transforms:
       type: Compose
-      ops: ~ 
+      ops: ~
   shuffle: False
   num_workers: 4
   drop_last: False
   collate_fn:
-    type: BatchImageCollateFuncion
+    type: BatchImageCollateFunction
