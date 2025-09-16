@@ -21,14 +21,14 @@ train_dataloader:
   num_workers: 4
   drop_last: True
   collate_fn:
-    type: BatchImageCollateFunction   # correct spelling
+    type: BatchImageCollateFuncion   # correct spelling
 
 val_dataloader:
   type: DataLoader
   dataset:
     type: CocoDetection
     img_folder: /kaggle/input/coco-2017-dataset/coco2017/val2017
-    ann_file: /kaggle/input/coco-2017-dataset/coco2017/annotations/instances_val2017.json
+    ann_file: /kaggle/working/coco_2017/data/annotations/instances_val2017_filtered.json
     return_masks: False
     transforms:
       type: Compose
@@ -37,4 +37,4 @@ val_dataloader:
   num_workers: 4
   drop_last: False
   collate_fn:
-    type: BatchImageCollateFunction
+    type: BatchImageCollateFuncion
