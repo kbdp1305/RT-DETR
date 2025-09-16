@@ -2,7 +2,7 @@ task: detection
 
 evaluator:
   type: CocoEvaluator
-  iou_types: ['bbox']
+  iou_types: ['bbox',]
 
 num_classes: 3
 remap_mscoco_category: False   # our ids are already 0:car,1:bus,2:truck
