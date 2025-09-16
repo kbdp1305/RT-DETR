@@ -18,8 +18,8 @@ train_dataloader:
   type: DataLoader
   dataset: 
     type: CocoDetection
-    img_folder: /kaggle/input/coco-2017-dataset/coco2017/train2017/
-    ann_file: /kaggle/input/coco-2017-dataset/coco2017/annotations/instances_train2017.json
+    img_folder: /kaggle/working/merged_vehicle_dataset/images/train
+    ann_file: /kaggle/working/merged_vehicle_dataset/annotations/instances_train2017_merged.json
     return_masks: False
     transforms:
       type: Compose
